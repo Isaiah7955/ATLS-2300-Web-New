@@ -6,38 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebDev2</title>
     <link rel="stylesheet" href="webdev2.css">
+    <link rel="stylesheet" href="webdev2.js">
 </head>
 <body>
-    <div class="clock" data-date="2024-12-25">
-        <div>
-          <div data-clock="years" data-numbers="101" class="clock-face"></div>
-        </div>
-        <div>
-          <div data-clock="seconds" data-numbers="60" class="clock-face"></div>
-        </div>
-        <div>
-          <div data-clock="minutes" data-numbers="60" class="clock-face"></div>
-        </div>
-        <div>
-          <div data-clock="hours" data-numbers="24" class="clock-face"></div>
-        </div>
-        <div>
-          <div data-clock="days" data-numbers="31" class="clock-face"></div>
-        </div>
-        <div>
-          <div data-clock="months" data-numbers="12" class="clock-face"></div>
-        </div>
+    <main>
+        <h1>
+          <span>Happy</span>
+          <span>new</span>
+          <span>year!</span>
+          <span class="tada">🎉</span>
+          <span class="year">2025</span>
+        </h1>
       
-        <div>
-          <div data-clock="day-names" data-numbers="7" class="clock-face"></div>
-        </div>
-        <button type="button" id="current-lang" class="current-lang-display">en</button>
-      </div>
+        <div class="no-support">⚠️ <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API/Guide">CSS Paint API</a> is not supported in this browser. Try viewing in Chrome.</div>
+      </main>
       
-      <dialog id="language-dialog">
-        <button type="button" id="btn-dialog-close" class="btn-dialog-close " autofocus>&#10005;</button>
-        <div id="language-options" class="language-options"></div>
-      </dialog>
-    
+      <script>
+        CSS.paintWorklet.addModule('https://codepen.io/hexagoncircle/pen/ogvoXpx.js');
+      </script>
 </body>
 </html>
