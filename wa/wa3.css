@@ -1,0 +1,44 @@
+/* Style for the Header */
+header {
+    background-color: rgb(78, 74, 74);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Style for Nav Bar*/
+nav {
+    background-color: #444; 
+    padding: 10px 0;
+}
+
+/* Style for the Navigation List */
+nav ul {
+    list-style: none; 
+    text-decoration: underline;
+    padding: 0;
+    margin: 0;
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+}
+
+/* Style for Each Navigation Item */
+nav ul li {
+    display: inline;
+}
+
+/* Style for Navigation Links */
+nav ul li a {
+    text-decoration: none; 
+    color: white; 
+    padding: 10px 15px; 
+    display: block;
+    transition: background 0.3s; 
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
