@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ica7-part1.css">
+    <title>Positioning 101</title>
+    <style>
+        #flex-parent {
+            display: flex;
+            flex-direction: column;
+            padding: 2vw;
+            border: 5px solid black;
+            background-color: chartreuse;
+        }
+
+        #box1 {
+            height: 300px;
+            width: 300px;
+            background-color: blue;
+            border: 5px solid red;
+        }
+
+        #box2 {
+            height: 300px;
+            width: 300px;
+            background-color: red;
+            border: 5px solid blue;
+        }
+
+        @media screen and (width:1200px) {
+            #flex-parent {
+                flex-direction: column;
+                background-color: mediumvioletred;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="flex-parent">
+        <div id="box1"></div>
+        <div id="box2"></div>
+        <div id="box1"></div>
+        <div id="box2"></div>
+
+    </div>
+
+</body>
+</html>
