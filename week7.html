@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* div {
+            border: 5px solid blacl;
+            background-color: darkmagenta;
+            height: 150px;
+            width: 150px;
+            animation-name: slide;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes slide {
+            from {
+                height: 150px;
+                width: 150px;
+                translate: 0 0;
+            }
+
+            50% {
+                height: 300px;
+                width: 300px;
+            }
+
+            to {
+                height: 150px;
+                width: 150px;
+                translate: 90vw 0;
+            }
+        } */
+
+        .square {
+            border-style: solid;
+            border-width: 1px;
+            display: block;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            transition: background-color 2s, width 3s, height 3s, rotate 3s;
+        }
+
+        div:hover {
+            background-color: red;
+            width: 1000px;
+            height: 1000px;
+            rotate: 270deg;
+        }
+    </style>
+</head>
+<body>
+    <div class="square">
+
+    </div>
+</body>
+</html>
