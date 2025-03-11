@@ -18,7 +18,7 @@ header {
     text-align: center;
     padding: 0px;
     background-image: url('galactic2.webp');
-    height: 100%;
+    height: auto;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -36,9 +36,8 @@ header {
     /*background-image: url('galactic2.webp');*/
     background-size: cover;
     align-items: center;
-    padding: 10px 20px;
+    padding: 5px 20px;
     /*height: 80px;*/
-    min-height: 60px;
     justify-content: space-between;
     background-color: black;
 }
@@ -46,14 +45,14 @@ header {
 .logo {
     width: 70px; 
     height: 70px;
-    margin-right: 0;
+    margin-left: auto;
 }
 
 .header-text {
     display: flex;
     flex-direction: column;
     color: rgb(255, 255, 255);
-    text-align: left;
+    text-align: center;
 }
 
 footer {
