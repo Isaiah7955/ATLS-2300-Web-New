@@ -10,18 +10,21 @@ header {
     background-color: rgb(195, 21, 21);
     color: #fff;
     text-align: center;
-    padding: 5px;
+    padding: 0px;
 }
 
 .performance-header {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 5px;
 }
 
 .header-container {
+    background-image: url('galactic2.webp');
+    background-size: cover;
     align-items: center;
-    padding: 5px;
+    padding: 10px;
 }
 
 .logo {
@@ -33,6 +36,12 @@ header {
 .header-text {
     display: flex;
     flex-direction: column;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .events-grid {
