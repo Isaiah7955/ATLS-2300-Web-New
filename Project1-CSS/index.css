@@ -23,6 +23,17 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family: "Plaster", system-ui;
+}
+
+.header-text h1 {
+    margin-bottom: 5px; 
+    font-size: 2.5em;
+}
+
+.header-text h2 {
+    margin-top: 5px;
+    font-size: 1.75em;
 }
 
 .performance-header {
@@ -33,19 +44,25 @@ header {
 }
 
 .header-container {
-    /*background-image: url('galactic2.webp');*/
     background-size: cover;
     align-items: center;
-    padding: 5px 20px;
+    padding: 20px 30px;
+    margin: 20px;
     /*height: 80px;*/
     justify-content: space-between;
     background-color: black;
+    border-radius: 22px;
 }
 
 .logo {
     width: 70px; 
     height: 70px;
     margin-left: auto;
+}
+
+.highlighter {
+    color: purple;
+    font-weight: bold;
 }
 
 .header-text {
@@ -59,6 +76,20 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 15px;
+    right: 5px;
+    background-color: black;
+    padding: 10px 10px;
+    text-align: center;
+    border-radius: 7px;
+}
+
+.back-to-top a {
+    color: white;
 }
 
 .events-grid {
