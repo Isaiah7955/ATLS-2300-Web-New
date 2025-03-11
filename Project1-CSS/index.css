@@ -31,9 +31,21 @@ header {
     font-size: 2.5em;
 }
 
+@media (max-width: 400px) {
+    .header-text h1 {
+        font-size: 1.75em;
+    }
+}
+
 .header-text h2 {
     margin-top: 5px;
     font-size: 1.75em;
+}
+
+@media (max-width: 400px) {
+    .header-text h2 {
+        font-size: 1em;
+    }
 }
 
 .performance-header {
@@ -48,7 +60,6 @@ header {
     align-items: center;
     padding: 20px 30px;
     margin: 20px;
-    /*height: 80px;*/
     justify-content: space-between;
     background-color: black;
     border-radius: 22px;
@@ -76,6 +87,10 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.footer a {
+    color: white;
 }
 
 .back-to-top {
@@ -138,9 +153,3 @@ button:hover {
         grid-template-columns: 1fr;
     }
 }
-
-/*@media (min-width: 1500px) {
-    .events-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}*/
