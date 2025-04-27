@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #6fdf24;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  #enteredDigits {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .container {
+    position: absolute;
+    margin: 20px 0;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  #phoneInput {
+    padding: 30px;
+    font-size: 20px;
+    width: 225px;
+    height: 4s0px;
+    text-align: center;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 10px;
+  }
+  
+  button {
+    padding: 20px;
+    font-size: 20px;
+    border: 2px solid #555;
+    border-radius: 8px;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #ccc;
+  }
