@@ -11,7 +11,7 @@ const deleteContainer = document.getElementById('deleteContainer');
 let hoverAttemptsInput = 0;
 let hoverAttemptsClear = 0;
 let hoverAttemptsDelete = 0;
-let hoverAttemptThreshold = 5;
+let hoverAttemptThreshold = 3;
 let phoneNumber = '';
 
 // This is a function to move a container element to random spot on screen
@@ -56,7 +56,7 @@ phoneInput.addEventListener('input', (z) => {
 
 //if user clicks on box, it will still move to random location if less than 5 hovers
 phoneInput.addEventListener('click', (z) => {
-    if (hoverAttemptsInput < 5) { //if less than 5 hovers
+    if (hoverAttemptsInput < 3) { //if less than 5 hovers
         moveElement(inputContainer); //move element randomly
         z.preventDefault(); //prevent default action of allowing the click to occur
       }
@@ -69,6 +69,27 @@ phoneInput.addEventListener('input', (z) => {
       //value check is not null, false, 0 or an empty string
       phoneNumber += value; //phone number starts as empty string and concatanates with every digit added
       enteredDigits.textContent = 'Phone number currently is: ' + phoneNumber; //display current number tracker
+
+
+    if (phoneNumber.length === 10) {
+      const formatted = `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6)}`;
+      
+      const messageBox = document.getElementById('phoneMessage');
+      messageBox.textContent = `Your phone number is: ${formatted}`;
+      messageBox.style.display = 'block';
+
+      // // Optionally hide the message after a few seconds
+      // setTimeout(() => {
+      //     messageBox.style.display = 'none';
+      // }, 4000); // hides after 4 seconds
+
+      // Reset input and tracker
+      phoneNumber = '';
+      enteredDigits.textContent = 'Phone number currently is: ';
+      phoneInput.blur();
+    }
+
+
       phoneInput.value = ''; //set the phone input value back to empty to not mess up previous inputs or future inputs
   
       // Reset hover count and move the input box after the user types a digit
@@ -79,7 +100,7 @@ phoneInput.addEventListener('input', (z) => {
       phoneInput.blur();
       //https://www.w3schools.com/jsref/met_html_blur.asp
 
-      hoverAttemptThreshold += 2; //increase threshold by 2 everytime user types a number (heehee)
+      hoverAttemptThreshold += 1; //increase threshold by 2 everytime user types a number (heehee)
     } else { //if not valid user input (i.e not 0-9 digit)
       phoneInput.value = '';  // Clear input if it's not a valid number
     }
@@ -87,7 +108,7 @@ phoneInput.addEventListener('input', (z) => {
 
 // Clear button hover
 clearButton.addEventListener('mouseenter', (z) => {
-    if (hoverAttemptsClear < 20) { //if hover for clear button isn't at 20 yet
+    if (hoverAttemptsClear < 8) { //if hover for clear button isn't at 20 yet
         moveElement(clearContainer); //move clear container
         hoverAttemptsClear++; //increment it
       }
@@ -95,14 +116,14 @@ clearButton.addEventListener('mouseenter', (z) => {
 
 // Delete button hover 
 deleteButton.addEventListener('mouseenter', (z) => {
-    if (hoverAttemptsDelete < 20) { //same thing with hover check
+    if (hoverAttemptsDelete < 8) { //same thing with hover check
         moveElement(deleteContainer); //move delete container
         hoverAttemptsDelete++; //increment it
       }
 });
 
 clearButton.addEventListener('click', (z) => {
-    if (hoverAttemptsClear < 20) { //if hover isn't at 20 yet
+    if (hoverAttemptsClear < 8) { //if hover isn't at 20 yet
         moveElement(clearContainer); //move clear container
         e.preventDefault(); //prevent default action of allowing the click to occur
       } 
@@ -117,7 +138,7 @@ clearButton.addEventListener('click', (z) => {
 });
 
 deleteButton.addEventListener('click', (z) => {
-    if (hoverAttemptsDelete < 20) { // if hover count not at 20
+    if (hoverAttemptsDelete < 8) { // if hover count not at 20
         moveElement(deleteContainer); //move delete container
         e.preventDefault(); //prevent default action of allowing the click to occur
       } 
