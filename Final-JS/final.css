@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #6fdf24;
+  background-color: #929a8c;
   font-family: 'Times New Roman', Times, serif;
   display: flex;
   flex-direction: column;
@@ -17,13 +17,17 @@ body {
   margin-top: 30px;
 }
 
-.container {
-  position: absolute;
+.row-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 20px 0;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.container {
   text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 #phoneInput {
@@ -48,4 +52,32 @@ button {
 
 button:hover {
   background-color: #ccc;
+}
+
+#submitButton {
+  background-color: #4CAF50; 
+  color: white;
+  border: 2px solid #3e8e41;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+#submitButton:hover {
+  background-color: #45a049;
+  transform: scale(1.15);
+}
+
+#phoneMessage {
+  display: none;
+  margin-top: 40px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#bottomImage {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 300px;
 }

@@ -3,15 +3,25 @@ const phoneInput = document.getElementById('phoneInput');
 const enteredDigits = document.getElementById('enteredDigits');
 const clearButton = document.getElementById('clearButton');
 const deleteButton = document.getElementById('deleteButton');
+const messageBox = document.getElementById('phoneMessage');
+const bottomImage = document.getElementById('bottomImage');
+
 
 const inputContainer = document.getElementById('inputContainer');
 const clearContainer = document.getElementById('clearContainer');
 const deleteContainer = document.getElementById('deleteContainer');
 
+const submitButton = document.getElementById('submitButton');
+const submitContainer = document.getElementById('submitContainer');
+
 let hoverAttemptsInput = 0;
 let hoverAttemptsClear = 0;
 let hoverAttemptsDelete = 0;
 let hoverAttemptThreshold = 3;
+
+let hoverAttemptsSubmit = 0;
+let submitHoverThreshold = 5;
+
 let phoneNumber = '';
 
 // This is a function to move a container element to random spot on screen
@@ -24,6 +34,7 @@ function moveElement(container) {
     const randomX = Math.floor(Math.random() * (windowWidth - containerWidth)); //find random width value
     const randomY = Math.floor(Math.random() * (windowHeight - containerHeight)); //find random height value
 
+    container.style.position = 'absolute'; //help create connection between JS and the absolute positioning of elements in CSS
     container.style.left = randomX + 'px'; //change to random spot + px so it knows to move it in px
     container.style.top = randomY + 'px';
 }
@@ -65,30 +76,20 @@ phoneInput.addEventListener('click', (z) => {
 // Typing into the phone input box
 phoneInput.addEventListener('input', (z) => {
     const value = phoneInput.value; //save value from the phoneInput which is the digit container box
+    
+    if (phoneNumber.length >= 10) { //don't allow user input greater than 10
+      phoneInput.value = '';  // Prevent additional input
+      messageBox.textContent = "Only 10 digits allowed! Click Submit to save and start a new number!";
+      messageBox.style.display = "block";
+      phoneInput.value = '';  
+      phoneInput.blur();  // Force the user to click again
+      return; //forces out of function
+  }
+    
     if (value && !isNaN(value)) { //check to see if valid number input
       //value check is not null, false, 0 or an empty string
       phoneNumber += value; //phone number starts as empty string and concatanates with every digit added
       enteredDigits.textContent = 'Phone number currently is: ' + phoneNumber; //display current number tracker
-
-
-    if (phoneNumber.length === 10) {
-      const formatted = `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6)}`;
-      
-      const messageBox = document.getElementById('phoneMessage');
-      messageBox.textContent = `Your phone number is: ${formatted}`;
-      messageBox.style.display = 'block';
-
-      // // Optionally hide the message after a few seconds
-      // setTimeout(() => {
-      //     messageBox.style.display = 'none';
-      // }, 4000); // hides after 4 seconds
-
-      // Reset input and tracker
-      phoneNumber = '';
-      enteredDigits.textContent = 'Phone number currently is: ';
-      phoneInput.blur();
-    }
-
 
       phoneInput.value = ''; //set the phone input value back to empty to not mess up previous inputs or future inputs
   
@@ -104,6 +105,35 @@ phoneInput.addEventListener('input', (z) => {
     } else { //if not valid user input (i.e not 0-9 digit)
       phoneInput.value = '';  // Clear input if it's not a valid number
     }
+});
+
+submitButton.addEventListener('mouseenter', () => {
+  if (hoverAttemptsSubmit < submitHoverThreshold) {
+    moveElement(submitContainer);
+    hoverAttemptsSubmit++;
+  }
+});
+
+submitButton.addEventListener('click', () => {
+  if (phoneNumber.length < 10) {
+    messageBox.textContent = "Not enough numbers inputted! Give me more! Give me more!";
+    messageBox.style.display = "block";
+
+    setTimeout(() => { //set message and then disappear after 5 seconds
+      messageBox.style.display = "none";
+    }, 5000);
+    //https://www.drupal.org/project/messagefx/issues/724180
+  } else {
+    const formattedPhoneNumber = `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6)}`;
+    messageBox.textContent = `Your past phone number is: ${formattedPhoneNumber}`;
+    messageBox.style.display = "block";
+
+    // Reset after submission
+    phoneNumber = '';
+    enteredDigits.textContent = 'Phone number currently is: ';
+  }
+
+  hoverAttemptsSubmit = 0;
 });
 
 // Clear button hover
@@ -125,7 +155,7 @@ deleteButton.addEventListener('mouseenter', (z) => {
 clearButton.addEventListener('click', (z) => {
     if (hoverAttemptsClear < 8) { //if hover isn't at 20 yet
         moveElement(clearContainer); //move clear container
-        e.preventDefault(); //prevent default action of allowing the click to occur
+        z.preventDefault(); //prevent default action of allowing the click to occur
       } 
       
       else { //we can now clear the number input
@@ -140,7 +170,7 @@ clearButton.addEventListener('click', (z) => {
 deleteButton.addEventListener('click', (z) => {
     if (hoverAttemptsDelete < 8) { // if hover count not at 20
         moveElement(deleteContainer); //move delete container
-        e.preventDefault(); //prevent default action of allowing the click to occur
+        z.preventDefault(); //prevent default action of allowing the click to occur
       } 
       
       else {
@@ -153,3 +183,13 @@ deleteButton.addEventListener('click', (z) => {
         deleteButton.blur();
       }
 });
+
+function hideBottomImage() {
+  if (bottomImage) { //if the image is currently there
+    bottomImage.style.display = 'none';
+  }
+}
+
+submitButton.addEventListener('mouseenter', hideBottomImage); //once any of these are hovered over, hide image function called
+clearButton.addEventListener('mouseenter', hideBottomImage);
+deleteButton.addEventListener('mouseenter', hideBottomImage);
