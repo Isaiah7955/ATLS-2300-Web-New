@@ -24,7 +24,7 @@ let submitHoverThreshold = 5;
 
 let phoneNumber = '';
 
-// This is a function to move a container element to random spot on screen
+// This is a function to move a container element to a random spot on screen
 function moveElement(container) {
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
